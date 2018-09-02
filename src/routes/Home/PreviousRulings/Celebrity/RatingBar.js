@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
+const RatingBar = styled.div`
   height: ${props => props.theme.progressBarHeight};
   position: absolute;
   bottom: 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  left: 0;
+  right: 0;
 `;
 
-export default Container;
+export default RatingBar;

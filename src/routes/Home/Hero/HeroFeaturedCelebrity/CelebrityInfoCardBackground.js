@@ -1,6 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import Portal from 'components/Portal';
 import papaJPG from '../papa.jpg';
 
 const Background = styled.div`
@@ -18,37 +19,45 @@ const BackgroundColor = Background.extend`
 const BackgroundBlur = Background.extend`
   z-index: 0;
   background-repeat: no-repeat;
-  position: fixed;
+  position: absolute;
   background-size: cover;
   /* backdrop-filter: blur(10px); */
   filter: blur(30px);
 `;
 
-class CelebrityInfoCardBackground extends PureComponent {
-  state = {};
+type Props = {};
+
+class CelebrityInfoCardBackground extends PureComponent<Props> {
+  ref: ?HTMLDivElement;
+
+  blurRef: ?HTMLDivElement;
 
   componentDidMount() {
     const hero = document.getElementById('hero-container');
-    if (this.ref && hero) {
+    if (this.ref && this.blurRef && hero) {
       const rect = this.ref.getBoundingClientRect();
       const heroRect = hero.getBoundingClientRect();
-      const style = hero.currentStyle || window.getComputedStyle(hero, false);
+      const bodyRect = document.body.getBoundingClientRect();
+      const offset = rect.top - bodyRect.top;
+      const bottomOffset = rect.bottom - bodyRect.top;
+      const style = window.getComputedStyle(hero, false);
       this.blurRef.style = { ...style };
       this.blurRef.style.backgroundImage = `linear-gradient(rgba(51,51,51,0.45), rgba(51,51,51,0.45)), ${style.backgroundImage}`;
-      this.blurRef.style.clip = `rect(${rect.top}px, ${rect.right}px, ${rect.bottom}px, ${rect.left}px)`;
+      this.blurRef.style.clip = `rect(${offset}px, ${rect.right}px, ${bottomOffset}px, ${rect.left}px)`;
     }
   }
 
   render() {
     return [
       <BackgroundColor
-        key="bg2"
+        key="bg1"
         innerRef={ref => { this.ref = ref; }}
       />,
-      <BackgroundBlur
-        key="bg2"
-        innerRef={ref => { this.blurRef = ref; }}
-      />
+      <Portal key="bg2">
+        <BackgroundBlur
+          innerRef={ref => { this.blurRef = ref; }}
+        />
+      </Portal>,
     ];
   }
 }

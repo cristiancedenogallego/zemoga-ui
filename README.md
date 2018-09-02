@@ -20,3 +20,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. I use flow as type checker
 
 6. All images are ontimized JPEG and ready for progressive loading
+
+7. the photographies was made background covered and centered because this can help because generally the relevant part of a photography is in the center of the image.

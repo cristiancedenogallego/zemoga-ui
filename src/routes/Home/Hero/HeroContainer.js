@@ -5,7 +5,7 @@ import papa from './papa.jpg';
 const HeroContainer = styled.div`
   background-size: cover;
   background-position: 50% 0;
-  height: 95vh;
+  height: 100vh;
   background-image: url(${papa});
   display: flex;
   align-items: center;
