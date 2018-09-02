@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const NavLink = styled(Link)`
   color: white;
   font-size: 16px;
+  font-weight: 300;
   color: rgb(255, 255, 255);
   line-height: 1.2;
   padding: 0 26px;

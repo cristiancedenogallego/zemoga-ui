@@ -7,8 +7,9 @@ const HeroContainer = styled.div`
   background-position: 50% 0;
   height: 95vh;
   background-image: url(${papa});
-  display: grid;
-  grid-template-columns: 450px auto;
+  display: flex;
+  align-items: center;
+  position: relative;
 
   @media (min-device-pixel-ratio: 2) {
     background: url(${papa2xJpg});
