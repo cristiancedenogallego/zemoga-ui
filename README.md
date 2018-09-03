@@ -44,7 +44,7 @@ yarn e2e:chrome
 
 4. I use the eslint airbnb for ensure javascript minimum code quality https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 
-5. I use flow as type checker
+5. I used flow as type checker
 
 6. All images are ontimized JPEG and ready for progressive loading
 
