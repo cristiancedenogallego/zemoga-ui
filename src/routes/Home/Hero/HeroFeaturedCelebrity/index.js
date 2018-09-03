@@ -1,6 +1,5 @@
 import React from 'react';
-import { withTheme } from 'styled-components';
-import { rgba } from 'polished';
+import styled, { withTheme } from 'styled-components';
 import LikeIcon from 'icons/Like';
 import Dislike from 'icons/Dislike';
 import CelebrityInfoCard from './CelebrityInfoCard';
@@ -21,10 +20,20 @@ type Theme = {
   },
 };
 
+const FeaturedContainer = styled.div`
+  @media (min-width: 700px) {
+    margin-top: 70px;
+  }
+`;
+
+const FeaturedCelebrityInfo = styled.div`
+  position: relative;
+`;
+
 function HeroFeaturedCelebrity({ theme } : { theme: Theme }) {
   return (
-    <div style={{  paddingTop: 70 }}>
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
+    <FeaturedContainer>
+      <FeaturedCelebrityInfo>
         <CelebrityInfoCardBackground />
         <CelebrityInfoCard>
           <CelebrityText>What’s your opinion on</CelebrityText>
@@ -35,18 +44,18 @@ function HeroFeaturedCelebrity({ theme } : { theme: Theme }) {
           <LinkToWiki><WikiIcon /> More information</LinkToWiki>
           <InvitationToRating>What’s Your Verdict?</InvitationToRating>
         </CelebrityInfoCard>
-      </div>
+      </FeaturedCelebrityInfo>
       <RatingBar>
         <RatingButton
-          backgroundColor={rgba(theme.colors.primary, 0.9)}
-          iconComponent={<LikeIcon width="36px" />}
+          backgroundColor={theme.colors.primary}
+          iconComponent={<LikeIcon />}
         />
         <RatingButton
-          backgroundColor={rgba(theme.colors.secondary, 0.9)}
-          iconComponent={<Dislike width="36px" />}
+          backgroundColor={theme.colors.secondary}
+          iconComponent={<Dislike />}
         />
       </RatingBar>
-    </div>
+    </FeaturedContainer>
   );
 }
 

@@ -11,6 +11,15 @@ const Button = styled.button`
   justify-content: center;
   z-index: 3;
   border: none;
+  opacity: 0.9;
+  
+  svg {
+    width: 20px;
+
+    @media (min-width: 800px) {
+      width: 36px;
+    }
+  }
 `;
 
 function RatingButton({ backgroundColor, iconComponent } : { backgroundColor: string, iconComponent: React$Element<any> }) {
