@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import LikeIcon from 'icons/Like';
-import Dislike from 'icons/Dislike';
+import LikeIcon from '../../../../icons/Like';
+import Dislike from '../../../../icons/Dislike';
 import CelebrityInfoCard from './CelebrityInfoCard';
 import CelebrityText from './CelebrityText';
 import CelebrityName from './CelebrityName';
@@ -21,7 +21,7 @@ type Theme = {
 };
 
 const FeaturedContainer = styled.div`
-  @media (min-width: 700px) {
+  @media (min-width: 700px) and (min-height: 700px) {
     margin-top: 70px;
   }
 `;
@@ -39,9 +39,14 @@ function HeroFeaturedCelebrity({ theme } : { theme: Theme }) {
           <CelebrityText>What’s your opinion on</CelebrityText>
           <CelebrityName>Pope Francis?</CelebrityName>
           <CelebrityDesc>
-            He’s talking tough on clergy sexual abuse, but is he just another papal pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up) 
+            He’s talking tough on clergy sexual abuse, but is he just another
+            papal pervert protector? (thumbs down) or a true pedophile punishing pontiff?
+            (thumbs up)
           </CelebrityDesc>
-          <LinkToWiki><WikiIcon /> More information</LinkToWiki>
+          <LinkToWiki>
+            <WikiIcon />
+            &nbsp;More information
+          </LinkToWiki>
           <InvitationToRating>What’s Your Verdict?</InvitationToRating>
         </CelebrityInfoCard>
       </FeaturedCelebrityInfo>

@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
-import MenuIcon from 'icons/Menu';
-import Portal from 'components/Portal';
+import MenuIcon from '../../icons/Menu';
+import Portal from '../Portal';
 import Logo from './Logo';
 import Drawer from './Drawer';
 import Overlay from './Overlay';
@@ -27,7 +27,11 @@ const HamburguerButton = styled.button`
   background: transparent;
 `;
 
-class MobileNavbar extends PureComponent {
+type Props = {
+  children: React.Node,
+}
+
+class MobileNavbar extends React.PureComponent<Props> {
   state = {
     isOpen: false,
   }
@@ -37,6 +41,9 @@ class MobileNavbar extends PureComponent {
   }
 
   render() {
+    const { isOpen } = this.state;
+    const { children } = this.props;
+
     return (
       <div>
         <Header>
@@ -45,12 +52,12 @@ class MobileNavbar extends PureComponent {
             <MenuIcon width="30px" />
           </HamburguerButton>
         </Header>
-        {this.state.isOpen && (
+        {isOpen && (
           <Drawer>
-            {this.props.children}
+            {children}
           </Drawer>
         )}
-        {this.state.isOpen && (
+        {isOpen && (
           <Portal>
             <Overlay onClick={this.toggleMenuOpen} role="presentation" />
           </Portal>

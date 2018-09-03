@@ -1,20 +1,20 @@
 // @flow
 import React from 'react';
+import GhostButton from '../../../../components/GhostButton';
 import CelebrityDescription from './CelebrityDescription';
-import GhostButton from 'components/GhostButton';
 
 const CelebrityDescriptionWithExtraSpace = CelebrityDescription.extend`
   padding-bottom: 1em;
 `;
 
-function WasVotedMessage() {
+function WasVotedMessage({ handleSetWasVotedRuling } : { handleSetWasVotedRuling: Function }) {
   return (
     <div>
       <CelebrityDescriptionWithExtraSpace>
         Thank you for voting!
         <br />
       </CelebrityDescriptionWithExtraSpace>
-      <GhostButton>Vote again</GhostButton>
+      <GhostButton onClick={() => handleSetWasVotedRuling(false)}>Vote again</GhostButton>
     </div>
   );
 }

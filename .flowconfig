@@ -7,5 +7,9 @@
 [lints]
 
 [options]
+module.name_mapper='^actions\/\(.*\)$' -> '<PROJECT_ROOT>/src/actions/\1'
+module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^icons\/\(.*\)$' -> '<PROJECT_ROOT>/src/icons/\1'
+module.name_mapper='^theme\/\(.*\)$' -> '<PROJECT_ROOT>/src/theme/\1'
 
 [strict]

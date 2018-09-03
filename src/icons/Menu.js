@@ -15,10 +15,10 @@ function Menu(props: Object) {
       {...props}
     >
       <g>
-        <rect y="3" width="50" height="2" fill="#FFFFFF"/>
-        <rect y="17" width="50" height="2" fill="#FFFFFF"/>
-        <rect y="31" width="50" height="2" fill="#FFFFFF"/>
-        <rect y="45" width="50" height="2" fill="#FFFFFF"/>
+        <rect y="3" width="50" height="2" fill="#FFFFFF" />
+        <rect y="17" width="50" height="2" fill="#FFFFFF" />
+        <rect y="31" width="50" height="2" fill="#FFFFFF" />
+        <rect y="45" width="50" height="2" fill="#FFFFFF" />
       </g>
     </svg>
   );

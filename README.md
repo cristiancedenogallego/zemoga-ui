@@ -1,5 +1,31 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+# Commands
+- Start project
+```console
+yarn start
+```
+
+- Build production ready version
+```console
+yarn build
+```
+
+- Run unit tests
+```console
+yarn test
+```
+
+- Run e2e test
+```console
+yarn e2e
+```
+
+- Run e2e test only in chrome
+```console
+yarn e2e:chrome
+```
+
 # Considerations
 
 1. To start project please run
@@ -14,6 +40,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 . Use all JS power to style components.
 . With react native web we can share some components with the react native team in case this exists.
 . Autoprefixer included.
+. Easy to use with ssr
 
 4. I use the eslint airbnb for ensure javascript minimum code quality https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 

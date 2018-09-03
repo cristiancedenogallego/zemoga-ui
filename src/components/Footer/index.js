@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import Container from 'components/Container';
-import Row from 'components/Row';
-import FacebookIcon from 'icons/Facebook';
-import TwitterIcon from 'icons/Twitter';
+import Row from '../Row';
+import FacebookIcon from '../../icons/Facebook';
+import TwitterIcon from '../../icons/Twitter';
+import Container from '../Container';
 import Content from './Content';
 import FooterNavigation from './FooterNavigation';
 import FooterLink from './FooterLink';

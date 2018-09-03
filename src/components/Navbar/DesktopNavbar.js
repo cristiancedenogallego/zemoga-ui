@@ -1,15 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import * as React from 'react';
 import DesktopContainer from './DesktopContainer';
 import DesktopContent from './DesktopContent';
 import Logo from './Logo';
 import Nav from './Nav';
 
 type Props = {
+  children: React.Node,
+};
 
-}
-function DesktopNavbar(props: Props) {
+function DesktopNavbar({ children }: Props) {
   return (
     <DesktopContainer>
       <DesktopContent>
@@ -17,7 +16,7 @@ function DesktopNavbar(props: Props) {
           Rule of Thumb.
         </Logo>
         <Nav>
-          {props.children}
+          {children}
         </Nav>
       </DesktopContent>
     </DesktopContainer>

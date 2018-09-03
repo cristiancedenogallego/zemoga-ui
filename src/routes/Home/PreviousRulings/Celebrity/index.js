@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import LikeIcon from 'icons/Like';
-import DislikeIcon from 'icons/Dislike';
 import moment from 'moment';
+import DislikeIcon from '../../../../icons/Dislike';
+import LikeIcon from '../../../../icons/Like';
 import CelebrityContainer from './CelebrityContainer';
 import CelebrityName from './CelebrityName';
 import RatingButton from './RatingButton';
@@ -24,6 +24,8 @@ type Props = {
   downVotes: number,
   imageUrl: string,
   wasVoted: boolean,
+  handleVote: Function,
+  handleSetWasVotedRuling: Function,
 };
 
 const RatingStatus = RatingButton.withComponent('div').extend`
@@ -32,27 +34,37 @@ const RatingStatus = RatingButton.withComponent('div').extend`
   left: 0;
 `;
 
-function Celebrity(props: Props) {
-  const totalVotes = props.downVotes + props.upVotes;
-  const percentPositiveVotes = (props.upVotes * 100) / totalVotes;
+function Celebrity({
+  downVotes,
+  upVotes,
+  imageUrl,
+  name,
+  publishedDate,
+  topic,
+  wasVoted,
+  handleSetWasVotedRuling,
+  description,
+  handleVote,
+}: Props) {
+  const totalVotes = downVotes + upVotes;
+  const percentPositiveVotes = Math.round(totalVotes > 0 ? (upVotes * 100) / totalVotes : 0);
   const isGoodRating = percentPositiveVotes > 50;
-  const percentNegativeVotes = 100 - percentPositiveVotes;
+  const percentNegativeVotes = Math.round(totalVotes > 0 ? 100 - percentPositiveVotes : 0);
   return (
-    <CelebrityContainer imageUrl={props.imageUrl}>
-      <CelebrityName>{props.name}</CelebrityName>
+    <CelebrityContainer imageUrl={imageUrl}>
+      <CelebrityName>{name}</CelebrityName>
       <PublishInfo>
         <PublishDate>
-          {moment(props.publishDate).fromNow()}
+          {moment(publishedDate).fromNow()}
         </PublishDate>
-        <span>
-          In {props.topic}
-        </span>
+        <span>In </span>
+        <span>{topic}</span>
       </PublishInfo>
-      {props.wasVoted && (
-        <WasVotedMessage />
+      {wasVoted && (
+        <WasVotedMessage handleSetWasVotedRuling={handleSetWasVotedRuling} />
       )}
-      {!props.wasVoted && (
-        <VoteView description={props.description} />
+      {!wasVoted && (
+        <VoteView description={description} handleVote={handleVote} />
       )}
       <RatingStatus isGoodRating={isGoodRating}>
         {isGoodRating && <LikeIcon width="18px" />}

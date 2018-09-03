@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-function Facebook(props) {
+function Facebook(props: Object) {
   return (
     <svg
       version="1.1"

@@ -1,8 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import Portal from 'components/Portal';
-import papaJPG from '../papa.jpg';
+import Portal from '../../../../components/Portal';
 
 const Background = styled.div`
   position: absolute;
@@ -28,10 +27,6 @@ const BackgroundBlur = Background.extend`
 type Props = {};
 
 class CelebrityInfoCardBackground extends PureComponent<Props> {
-  ref: ?HTMLDivElement;
-
-  blurRef: ?HTMLDivElement;
-
   componentDidMount() {
     window.addEventListener('resize', this.handleUpdateBlurEffect);
     this.handleUpdateBlurEffect();
@@ -43,28 +38,33 @@ class CelebrityInfoCardBackground extends PureComponent<Props> {
 
   handleUpdateBlurEffect = () => {
     const hero = document.getElementById('hero-container');
-    if (this.ref && this.blurRef && hero) {
+    if (this.ref && hero) {
       const rect = this.ref.getBoundingClientRect();
-      const heroRect = hero.getBoundingClientRect();
-      const bodyRect = document.body.getBoundingClientRect();
+      const bodyRect = document.body ? document.body.getBoundingClientRect() : {};
       const offset = rect.top - bodyRect.top;
       const bottomOffset = rect.bottom - bodyRect.top;
       const style = window.getComputedStyle(hero, false);
-      this.blurRef.style = { ...style };
-      this.blurRef.style.backgroundImage = `linear-gradient(rgba(51,51,51,0.45), rgba(51,51,51,0.45)), ${style.backgroundImage}`;
-      this.blurRef.style.clip = `rect(${offset}px, ${rect.right}px, ${bottomOffset}px, ${rect.left}px)`;
+      if (this.blurRef) {
+        this.blurRef.style = { ...style };
+        this.blurRef.style.backgroundImage = `linear-gradient(rgba(51,51,51,0.45), rgba(51,51,51,0.45)), ${style.backgroundImage}`;
+        this.blurRef.style.clip = `rect(${offset}px, ${rect.right}px, ${bottomOffset}px, ${rect.left}px)`;
+      }
     }
   }
+
+  blurRef: ?HTMLDivElement;
+
+  ref: ?HTMLDivElement;
 
   render() {
     return [
       <BackgroundColor
         key="bg1"
-        innerRef={ref => { this.ref = ref; }}
+        innerRef={(ref) => { this.ref = ref; }}
       />,
       <Portal key="bg2">
         <BackgroundBlur
-          innerRef={ref => { this.blurRef = ref; }}
+          innerRef={(ref) => { this.blurRef = ref; }}
         />
       </Portal>,
     ];

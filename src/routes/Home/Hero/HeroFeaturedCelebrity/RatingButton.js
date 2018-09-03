@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -22,7 +22,12 @@ const Button = styled.button`
   }
 `;
 
-function RatingButton({ backgroundColor, iconComponent } : { backgroundColor: string, iconComponent: React$Element<any> }) {
+type Props = {
+  backgroundColor: string,
+  iconComponent: React.Node,
+};
+
+function RatingButton({ backgroundColor, iconComponent } : Props) {
   return (
     <Button backgroundColor={backgroundColor}>
       {iconComponent}

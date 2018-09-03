@@ -1,9 +1,13 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 const portalRoot = document.getElementById('portal');
 
-class Portal extends PureComponent {
+type Props = {
+  children: React.Node,
+}
+
+class Portal extends React.PureComponent<Props> {
   constructor(props) {
     super(props);
     this.el = document.createElement('div');
@@ -18,8 +22,9 @@ class Portal extends PureComponent {
   }
 
   render() {
+    const { children } = this.props;
     return ReactDOM.createPortal(
-      this.props.children,
+      children,
       this.el,
     );
   }

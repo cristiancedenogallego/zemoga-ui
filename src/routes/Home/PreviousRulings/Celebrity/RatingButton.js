@@ -8,8 +8,8 @@ const RatingButton = styled.button`
   align-items: center;
   border: none;
   margin-right: 10px;
-  border: ${props => props.active ? '2px solid white' : 'none'};
-  background: ${props => props.isGoodRating ? props.theme.colors.primary : props.theme.colors.secondary};
+  outline: ${props => (props.active ? '2px solid white' : 'none')};
+  background: ${props => (props.isGoodRating ? props.theme.colors.primary : props.theme.colors.secondary)};
 `;
 
 export default RatingButton;

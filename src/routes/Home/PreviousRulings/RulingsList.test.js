@@ -3,26 +3,26 @@ import { mount, shallow } from 'enzyme';
 import RulingsList from './RulingsList';
 import Celebrity from './Celebrity';
 
-jest.mock('./Celebrity', () => 'Celebrity')
+jest.mock('./Celebrity', () => 'Celebrity');
 
 const fetchSpy = jest.spyOn(window, 'fetch');
 const stubList = [{ a: 1 }];
 const rulingsPromise = Promise.resolve(stubList);
-const stubResponse = Promise.resolve({ json: () => rulingsPromise})
+const stubResponse = Promise.resolve({ json: () => rulingsPromise });
 
 fetchSpy.mockReturnValue(stubResponse);
 
 describe('RulingsList', () => {
   test('Should load data from proper .json file', () => {
     mount(
-      <RulingsList />
+      <RulingsList />,
     );
     expect(fetchSpy).toHaveBeenCalledWith('/data.json');
   });
 
   test('Should update state from fetch response', async () => {
     const wrapper = mount(
-      <RulingsList />
+      <RulingsList />,
     );
     await rulingsPromise;
     await stubResponse;
@@ -33,7 +33,7 @@ describe('RulingsList', () => {
     const stubFetchFail = Promise.reject();
     fetchSpy.mockReturnValueOnce(stubFetchFail);
     const wrapper = mount(
-      <RulingsList />
+      <RulingsList />,
     );
     try {
       await stubFetchFail;
@@ -44,22 +44,21 @@ describe('RulingsList', () => {
 
   test('Should render proper Celebrity cards', () => {
     const wrapper = shallow(
-      <RulingsList />
+      <RulingsList />,
     );
     wrapper.setState({
       rulings: [
         {
-          "id": 1,
-          "name": "Kanye West",
-          "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-          "publishedDate": "2018-07-01",
-          "topic": "Entertainment",
-          "imageUrl": "/images/kanye_west.jpg"
-        }
+          id: 1,
+          name: 'Kanye West',
+          description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
+          publishedDate: '2018-07-01',
+          topic: 'Entertainment',
+          imageUrl: '/images/kanye_west.jpg',
+        },
       ],
     });
     wrapper.update();
     expect(wrapper.find(Celebrity).props()).toMatchSnapshot();
-    
   });
 });

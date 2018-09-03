@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Navbar from './index';
 import has from 'ramda/src/has';
+import Navbar from './index';
 import DesktopNavbar from './DesktopNavbar';
 import MobileNavbar from './MobileNavbar';
 
@@ -23,36 +23,36 @@ describe('Navbar', () => {
 
   test('if matchMedia not enabled not run size validation', () => {
     has.mockReturnValueOnce(false);
-    const wrapper = shallow(
-      <Navbar />
+    shallow(
+      <Navbar />,
     );
     expect(global.matchMedia).not.toHaveBeenCalled();
   });
 
   test('if matchMedia is available should add listener', () => {
-    const wrapper = shallow(
-      <Navbar />
+    shallow(
+      <Navbar />,
     );
     expect(addListener).toHaveBeenCalled();
   });
 
   test('Should update state with the matchMedia result', () => {
     const wrapper = shallow(
-      <Navbar />
+      <Navbar />,
     );
     expect(wrapper.state().isDesktop).toBe(true);
   });
 
   test('Should call addListener with proper param', () => {
     const wrapper = shallow(
-      <Navbar />
+      <Navbar />,
     );
     expect(addListener).toHaveBeenCalledWith(wrapper.instance().handleResize);
   });
 
   test('Should render the proper component if is desktop', () => {
     const wrapper = shallow(
-      <Navbar />
+      <Navbar />,
     );
     wrapper.setState({
       isDesktop: true,
@@ -63,7 +63,7 @@ describe('Navbar', () => {
 
   test('Should render the proper component if is mobile', () => {
     const wrapper = shallow(
-      <Navbar />
+      <Navbar />,
     );
     wrapper.setState({
       isDesktop: false,
@@ -72,4 +72,4 @@ describe('Navbar', () => {
     expect(wrapper.find(DesktopNavbar).length).toBe(0);
     expect(wrapper.find(MobileNavbar).length).toBe(1);
   });
-})
+});

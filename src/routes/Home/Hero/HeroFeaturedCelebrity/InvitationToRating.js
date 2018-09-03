@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const InvitationToRating = styled.div`
   font-size: 20px;

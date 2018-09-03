@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import EmptyRouteWrapper from 'components/EmptyRouteWrapper';
+import EmptyRouteWrapper from '../../components/EmptyRouteWrapper';
 
 function Search() {
   return (

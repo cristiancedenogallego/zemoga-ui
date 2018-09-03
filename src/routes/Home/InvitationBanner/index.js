@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import CloseIcon from 'icons/Close';
-import GridArea from 'components/GridArea';
+import CloseIcon from '../../../icons/Close';
+import GridArea from '../../../components/GridArea';
 import Container from './Container';
 import Subtitle from './Subtitle';
 import Title from './Title';
@@ -16,8 +16,10 @@ function InvitationBanner() {
       </GridArea>
       <GridArea name="explanation">
         <BannerExplanation>
-          Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out
-          and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.
+          Rule of Thumb is a crowd sourced court of public opinion where
+          anyone and everyone can speak out
+          and speak freely. It’s easy: You share your opinion, we analyze
+          and put the data in a public report.
         </BannerExplanation>
       </GridArea>
       <GridArea name="close">

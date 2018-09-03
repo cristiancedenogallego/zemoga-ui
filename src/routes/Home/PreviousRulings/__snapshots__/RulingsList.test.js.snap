@@ -3,11 +3,14 @@
 exports[`RulingsList Should render proper Celebrity cards 1`] = `
 Object {
   "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-  "downVotes": 40,
+  "downVotes": 0,
+  "handleSetWasVotedRuling": [Function],
+  "handleVote": [Function],
   "imageUrl": "/images/kanye_west.jpg",
   "name": "Kanye West",
   "publishedDate": "2018-07-01",
   "topic": "Entertainment",
-  "upVotes": 60,
+  "upVotes": 0,
+  "wasVoted": undefined,
 }
 `;

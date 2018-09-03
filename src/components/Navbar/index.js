@@ -34,15 +34,20 @@ class Navbar extends PureComponent<Props, State> {
   }
 
   render() {
-    const ProperMenuComponent = this.state.isDesktop ? DesktopNavbar : MobileNavbar;
+    const { isDesktop } = this.state;
+    const ProperMenuComponent = isDesktop ? DesktopNavbar : MobileNavbar;
     return (
       <ProperMenuComponent>
         <NavLink to="/">Past Trials</NavLink>
         <NavLink to="/how-it-works">How It Works</NavLink>
         <NavLink to="/login">Log In / Sign Up</NavLink>
-        <SearchLink to="/search"><SearchIcon /> <SearchLabel>Buscar</SearchLabel></SearchLink>
+        <SearchLink to="/search">
+          <SearchIcon />
+          &nbsp;
+          <SearchLabel>Buscar</SearchLabel>
+        </SearchLink>
       </ProperMenuComponent>
-    )
+    );
   }
 }
 
