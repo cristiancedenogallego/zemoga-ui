@@ -35,12 +35,12 @@ yarn e2e:chrome
 
 3. This project dont use any kind of css preprocessor because i used [styled-components] package that use tagged template literals to style components with the next beneficts.
 
-. SASS Like syntax supported.
-. Adapting component styles based on props.
-. Use all JS power to style components.
-. With react native web we can share some components with the react native team in case this exists.
-. Autoprefixer included.
-. Easy to use with ssr
+- SASS Like syntax supported.
+- Adapting component styles based on props.
+- Use all JS power to style components.
+- With react native web we can share some components with the react native team in case this exists.
+- Autoprefixer included.
+- Easy to use with ssr
 
 4. I use the eslint airbnb for ensure javascript minimum code quality https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
 
@@ -48,4 +48,4 @@ yarn e2e:chrome
 
 6. All images are ontimized JPEG and ready for progressive loading
 
-7. the photographies was made background covered and centered because this can help because generally the relevant part of a photography is in the center of the image.
+7. the photographs in the voting boxes was made background covered and centered because this help because generally the relevant part of a photography is in the center of the image.
