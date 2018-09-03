@@ -9,6 +9,7 @@ const GhostButton = styled.button`
   justify-content: center;
   font-size: 20px;
   color: #333333;
+  background: transparent;
 `;
 
 export default GhostButton;
