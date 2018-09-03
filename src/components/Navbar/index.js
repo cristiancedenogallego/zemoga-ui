@@ -37,7 +37,7 @@ class Navbar extends PureComponent<Props, State> {
     const ProperMenuComponent = this.state.isDesktop ? DesktopNavbar : MobileNavbar;
     return (
       <ProperMenuComponent>
-        <NavLink to="/past-trials">Past Trials</NavLink>
+        <NavLink to="/">Past Trials</NavLink>
         <NavLink to="/how-it-works">How It Works</NavLink>
         <NavLink to="/login">Log In / Sign Up</NavLink>
         <SearchLink to="/search"><SearchIcon /> <SearchLabel>Buscar</SearchLabel></SearchLink>

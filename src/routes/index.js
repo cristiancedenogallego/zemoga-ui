@@ -3,12 +3,19 @@ import { Switch, Route } from 'react-router-dom';
 import loadable from 'loadable-components';
 
 const Home = loadable(() => import('./Home'));
+const PastTrials = loadable(() => import('./PastTrials'));
+const HowItsWorks = loadable(() => import('./HowItsWorks'));
+const Login = loadable(() => import('./Login'));
+const Search = loadable(() => import('./Search'));
 
 function Routes() {
   return (
     <Switch>
-      <Route exact key="home" path="/" component={Home} />
-      <Route key="howItsWorks" path="/how-its-works" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route path="/past-trials" component={PastTrials} />
+      <Route path="/how-it-works" component={HowItsWorks} />
+      <Route path="/login" component={Login} />
+      <Route path="/Search" component={Search} />
     </Switch>
   );
 }
