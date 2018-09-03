@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RulingsList Should render proper Celebrity cards 1`] = `
+Object {
+  "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+  "downVotes": 40,
+  "imageUrl": "/images/kanye_west.jpg",
+  "name": "Kanye West",
+  "publishedDate": "2018-07-01",
+  "topic": "Entertainment",
+  "upVotes": 60,
+}
+`;
