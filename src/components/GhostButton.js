@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const ViewFullReportButton = styled.button`
+const GhostButton = styled.button`
   background: transparent;
   font-size: 14px;
   line-height: 24px;
   border: 1px solid white;
-  width: 156px;
-  height: 40px;
+  padding: 7px 18px;
+  min-height: 40px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -14,4 +14,4 @@ const ViewFullReportButton = styled.button`
   justify-content: center;
 `;
 
-export default ViewFullReportButton;
+export default GhostButton;

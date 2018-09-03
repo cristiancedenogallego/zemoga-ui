@@ -33,6 +33,15 @@ class CelebrityInfoCardBackground extends PureComponent<Props> {
   blurRef: ?HTMLDivElement;
 
   componentDidMount() {
+    window.addEventListener('resize', this.handleUpdateBlurEffect);
+    this.handleUpdateBlurEffect();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleUpdateBlurEffect);
+  }
+
+  handleUpdateBlurEffect = () => {
     const hero = document.getElementById('hero-container');
     if (this.ref && this.blurRef && hero) {
       const rect = this.ref.getBoundingClientRect();

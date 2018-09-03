@@ -2,8 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from 'components/Container';
+import Row from 'components/Row';
 import FacebookIcon from 'icons/Facebook';
-import TwitterIcon from 'icons/Facebook';
+import TwitterIcon from 'icons/Twitter';
 import Content from './Content';
 import FooterNavigation from './FooterNavigation';
 import FooterLink from './FooterLink';
@@ -12,6 +13,10 @@ const FollowUsText = styled.span`
   font-size: 12px;
   font-weight: 300;
   color: #666666;
+`;
+
+const IconWrapper = styled.span`
+  margin-left: 25px;
 `;
 
 function Footer() {
@@ -23,11 +28,15 @@ function Footer() {
           <FooterLink>Privacy Policy</FooterLink>
           <FooterLink>Contact Us</FooterLink>
         </FooterNavigation>
-        <div>
+        <Row alignItems="center">
           <FollowUsText>Folow Us</FollowUsText>
-          <FacebookIcon />
-          <TwitterIcon />
-        </div>
+          <IconWrapper>
+            <FacebookIcon width="24px" />
+          </IconWrapper>
+          <IconWrapper>
+            <TwitterIcon width="24px" />
+          </IconWrapper>
+        </Row>
       </Content>
     </Container>
   );
